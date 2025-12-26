@@ -50,13 +50,13 @@
 // #define RPI_ILI9486_DRIVER // 20MHz maximum SPI
 // #define HX8357D_DRIVER
 // #define ILI9481_DRIVER
-// #define ILI9486_DRIVER
+#define ILI9486_DRIVER
 // #define ILI9488_DRIVER     // WARNING: Do not connect ILI9488 display SDO to MISO if other devices share the SPI bus (TFT SDO does NOT tristate when CS is high)
 //#define ST7789_DRIVER      // Full configuration option, define additional parameters below for this display
 // #define ST7789_2_DRIVER    // Minimal configuration option, define additional parameters below for this display
 // #define R61581_DRIVER
 // #define RM68140_DRIVER
-#define ST7796_DRIVER
+//#define ST7796_DRIVER
 // #define SSD1351_DRIVER
 // #define SSD1963_480_DRIVER
 // #define SSD1963_800_DRIVER
@@ -206,6 +206,7 @@
 #define TFT_DC 2  // Data Command control pin
 // #define TFT_RST   4  // Reset pin (could connect to RST pin)
 #define TFT_RST -1 // Set TFT_RST to -1 if display RESET is connected to ESP32 board RST
+#define TOUCH_CS 33     // Chip select pin (T_CS) of touch screen 
 
 // For ESP32 Dev board (only tested with GC9A01 display)
 // The hardware SPI can be mapped to any pins
