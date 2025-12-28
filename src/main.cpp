@@ -32,6 +32,7 @@ String disk1Write = "--";
 String disk2Write = "--";
 String disk3Write = "--";
 String disk4Write = "--";
+String fps = "--";
 
 // ================= TFT & PREFS =================
 TFT_eSPI tft = TFT_eSPI();
@@ -197,10 +198,14 @@ void fetch(JsonArray children, String parent)
       disk3Write = val;
       else if (current == "SAH/WD Green 2.5 480GB/Throughput/Write Rate")
       disk4Write = val;
+      
 
       // CPU usage
       else if (label == "CPU Total" && val.indexOf("%") != -1)
         cpuUtil = val;
+
+      else if (label == "Fullscreen FPS")
+      fps = val;
 
       // GPU usage
       else if (label == "GPU Core" && val.indexOf("%") != -1)
@@ -222,6 +227,7 @@ void showTemps() {
 
   tft.drawString("GPU Temp:", 10, 50, 2);
   tft.drawString(gpuTemp, 150, 50, 2);
+  
 
   tft.drawString("Download Speed:", 10, 80, 2);
   tft.fillRect(120, 80, 120, 20, TFT_BLACK);  // erase old text
@@ -232,6 +238,9 @@ void showTemps() {
 
   tft.drawString("GPU Util:", 10, 150, 2);
   tft.drawString(gpuUtil, 150, 150, 2);
+  tft.drawString("FPS:", 250, 150, 2);
+  tft.drawString(fps, 350, 150, 2);
+
 
   tft.drawString("Disk 0 T/R/W:", 10, 180, 2);
   tft.drawString(disk1, 150, 180, 2);
