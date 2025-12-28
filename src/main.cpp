@@ -5,7 +5,6 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 #include <ESP32CYD_defines.h>
-
 // ================= WIFI =================
 const char* ssid = "WiFi Saya";
 const char* password = "YewonKim123!";
@@ -94,7 +93,7 @@ void loop() {
 
       if (httpResponseCode > 0) {
         JsonDocument doc;
-        DeserializationError error = deserializeJson(doc, http.getStream(), DeserializationOption::NestingLimit(40));
+        DeserializationError error = deserializeJson(doc, http.getStream(), DeserializationOption::NestingLimit(14));
 
         if (!error) {
           JsonArray root = doc["Children"];
