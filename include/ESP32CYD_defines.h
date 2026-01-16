@@ -1,9 +1,9 @@
 /* GPIO Defines for the ESP32CYD 3.5 Inch */
 
 // RGB LEDS PINS ACTIVE-LOW
-#define RGB_BLUE 16
-#define RGB_RED 4
-#define RGB_GREEN 17
+#define RGB_BLUE_PIN 16
+#define RGB_RED_PIN 4
+#define RGB_GREEN_PIN 17
 
 // LDR PINS
 #define LDR_PIN 34
