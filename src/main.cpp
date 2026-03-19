@@ -152,17 +152,17 @@ void setup() {
     tft.setTouch(calData);
     // WiFi
     wifiManager.setConfigPortalTimeout(240);
-    wifiManager.setConnectTimeout(5000);
-    wifiManager.setConnectRetries(4);
+    wifiManager.setConnectTimeout(5);
+    wifiManager.setConnectRetries(2);
     if (wifisetup) {
         drawWifiSetup();  
         // Force config portal
         wifiManager.startConfigPortal("ESP32-HardwareMon", "12345678");
     } else {
         drawWifiSetup();
-        // Try auto connect first
-        if (!wifiManager.autoConnect("ESP32-HardwareMon", "12345678")) {
-            // Fallback if connection fails
+        bool connected = wifiManager.autoConnect("ESP32-HardwareMon", "12345678");
+        if (!connected) {
+            // Explicit portal → timeout WILL work
             wifiManager.startConfigPortal("ESP32-HardwareMon", "12345678");
         }
     }
