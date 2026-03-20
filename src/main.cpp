@@ -154,6 +154,7 @@ void setup() {
     wifiManager.setConfigPortalTimeout(240);
     wifiManager.setConnectTimeout(5);
     wifiManager.setConnectRetries(2);
+    WiFi.setSleep(false); // issue with wifi power save making udp packet loss
     if (wifisetup) {
         drawWifiSetup();  
         // Force config portal
